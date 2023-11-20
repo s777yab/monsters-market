@@ -1,0 +1,10 @@
+<%= simple_form_for monster do |f| %>
+<%= f.input :name %>
+<%= f.input :species %>
+<%= f.input :ability %>
+<%= f.input :address %>
+<%= f.input :price %>
+<%= f.submit %>
+<% end %>
+<%= link_to 'Cancel', :back, class: 'btn btn-secondary' %>
+<%# render "form", monster: @monster %>
