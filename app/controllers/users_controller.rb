@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def user
-    @bookings = Booking.find(Booking.find(current_user.id))
+    @bookings = Booking.where(current_user.id == :user_id)
   end
 end
