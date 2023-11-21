@@ -7,3 +7,32 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+
+puts "🧼🧼🧼Cleaning the databse🧼🧼🧼"
+Monster.destroy_all
+User.destroy_all
+
+
+puts "👾👾👾 Creatting users and monsters 👾👾👾"
+
+species = ["water", "earth", "ghost", "fire"]
+
+10.times do
+  user = User.new(
+    email: Faker::Internet.email,
+    password: "Password1234"
+  )
+
+  monster = Monster.new(
+    name: Faker::Games::Pokemon.name,
+    species: species.sample,
+    address: Faker::Address.city
+  )
+
+  user.save
+  monster.user = user
+  monster.save
+end
+
+puts "🎉!!!FINITO BOYS!!!🎉"
