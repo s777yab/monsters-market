@@ -1,8 +1,12 @@
 <h1>Test to see if user page is working</h1>
 
-<ul>
-  <% @bookings.each do |booking| %>
-  <li><%= booking.monster.name %></li>
-  <li><%= booking.user.email %></li>
-  <% end %>
-</ul>
+
+<% @bookings.each do |booking| %>
+  <h3><%= booking.monster.name %></h3>
+  <ul>
+    <li>Species: <%= booking.monster.species %></li>
+    <li>Price: <%= booking.monster.price %></li>
+    <li>Start date: <%= booking.start_date %></li>
+    <li>End date: <%= booking.end_date %></li>
+  </ul>
+<% end %>
