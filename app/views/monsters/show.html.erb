@@ -1,29 +1,40 @@
-<h1><%= @monster.name %></h1>
+<div class="container">
+  <div class="d-flex">
+    <div class="flex-direction">
+      <%= cl_image_tag(@monster.photo.key, height: 250, width: 400, crop: :fill, :class => "show-photo-border-radius") %>
+      <div class="align-self-center mt-2 p-3 monster-spec-background-color">
+        <h1 class="monster-list-margin"><%= @monster.name.capitalize %></h1>
+        <div class="display-ability-species-margin">
+          <p class="monster-list-margin"><span>Species:</span> <%= @monster.species.capitalize %></p>
+          <p class="monster-list-margin"><span>Ability:</span> <%= @monster.ability.capitalize %></p>
+        </div>
+      </div>
+    </div>
 
-<p><%= @monster.ability %></p>
+    <div class="py-3 booking-form-container booking-form-margin-left">
+      <%= simple_form_for([@monster, @booking]) do |f| %>
+        <h2>Book your monster</h2>
+        <%= f.input :start_date, as: :date, label_html: { class: "booking-form-label-font-size"}, input_html: { class: "p-2" } %>
+        <%= f.input :end_date, as: :date, label_html: { class: "booking-form-label-font-size"}, input_html: { class: "p-2" } %>
+        <h3 class="my-4"><%= @monster.price %>$ / per day</h3>
+        <%= f.button :submit, class: "btn-dark mb-3" %>
+      <% end %>
+    </div>
+  </div>
 
-<%= cl_image_tag @monster.photo.key, height: 300, width: 400, crop: :fill %>
-
-<div>
-  <%= simple_form_for([@monster, @booking])  do |f| %>
-    <%= f.input :start_date, as: :date %>
-    <%= f.input :end_date, as: :date%>
-    <p><%= @monster.price %>$ / per day</p>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
-</div>
-
-<div>
-  <%= simple_form_for([@monster, @review])  do |f| %>
-    <%= f.input :comment, as: :text %>
-    <%= f.input :rating, collection: 1..5 %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
-</div>
+  <div class="p-3 review-backgroud-color-white my-2">
+    <%= simple_form_for([@monster, @review]) do |f| %>
+      <h2>Leave review</h2>
+      <%= f.input :comment, as: :text %>
+      <%= f.input :rating, collection: 1..5 %>
+      <%= f.button :submit, class: "btn-outline-dark" %>
+    <% end %>
+  </div>
 
 
-<div>
-  <% @monster.reviews.each do |review| %>
-  <p><%= review.comment %></p>
-  <% end %>
+  <div>
+    <% @monster.reviews.each do |review| %>
+    <p><%= review.comment %></p>
+    <% end %>
+  </div>
 </div>
