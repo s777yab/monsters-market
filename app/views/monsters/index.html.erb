@@ -3,16 +3,20 @@
 </div>
 
 
-<div class="cards">
-  <% @monsters.each do |monster| %>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h2 class="text-center"><%= monster.name %></h2>
-        <div class="d-grid gap-2 col-9 mx-auto">
-          <a link_to  class="btn btn-primary">Go somewhere</a>
-           <% end %>
+
+<div class="row">
+<% @monsters.each do |monster| %>
+  <div class="col-12 col-lg-3">
+      <div class="card text-center">
+        <div class="card photo" class="card-img-top">
+          <div class="card-body">
+            <h2 class="card-title"><%= monster.name %></h2>
+            <p class="card-text">Price: $<%= monster.price %></p>
+            <button type="button" class="class="glow-on-hover>
+            <%= link_to "monster", monster_path(monster) %></button>
+          </div>
         </div>
       </div>
-    </div>
+  </div>
+<% end %>
 </div>
