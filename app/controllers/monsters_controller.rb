@@ -17,6 +17,12 @@ class MonstersController < ApplicationController
 
   def create
     @monster = Monster.new(monster_params)
+    @monster.user = current_user
+    if @monster.save
+      redirect_to monster_path(@monster)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
@@ -26,7 +32,7 @@ class MonstersController < ApplicationController
   end
 
   def monster_params
-    params.require(:monster).permit(:name, :species, :ability, :address, :price)
+    params.require(:monster).permit(:name, :species, :ability, :address, :price, :photo)
   end
 
 end
