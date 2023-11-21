@@ -12,3 +12,11 @@
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 </div>
+
+<div>
+  <%= simple_form_for([@monster, @review])  do |f| %>
+    <%= f.input :comment, as: :text %>
+    <%= f.input :rating, collection: (1.0..5.0).to_a %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
