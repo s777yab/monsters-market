@@ -1,4 +1,10 @@
-.card{  margin-left: 20px;
+.card{  margin: 20px;
         border-color: black;
-
+        background-color: white;
+}
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  background-color: white;
 }
