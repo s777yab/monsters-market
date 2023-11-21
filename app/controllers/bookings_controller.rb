@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
     @booking.user = current_user
     @monster = Monster.find(params[:monster_id])
+    @review = Review.new
     @booking.monster = @monster
     if @booking.save
       redirect_to user_path(current_user)

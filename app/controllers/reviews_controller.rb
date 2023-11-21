@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
-    @monster = Monster.find(:monster_id)
+    @monster = Monster.find(params[:monster_id])
     @review.monster = @monster
     @review.user = current_user
     if @review.save
