@@ -3,7 +3,7 @@
 <p><%= @monster.ability %></p>
 
 <div>
-  <%= simple_form_for([@booking], url: bookings_path(@monster))  do |f| %>
+  <%= simple_form_for([@monster, @booking])  do |f| %>
     <%= f.input :start_date, as: :date %>
     <%= f.input :end_date, as: :date%>
     <p><%= @monster.price %>$ / per day</p>
