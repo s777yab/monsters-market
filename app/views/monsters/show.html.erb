@@ -1,3 +1,5 @@
 <h1><%= @monster.name %></h1>
 
 <p><%= @monster.ability %></p>
+
+<%= cl_image_tag @monster.photo.key, height: 300, width: 400, crop: :fill %>
