@@ -8,13 +8,14 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require 'faker'
+require 'date'
 
 puts "🧼🧼🧼Cleaning the databse🧼🧼🧼"
 Monster.destroy_all
 User.destroy_all
 
 
-puts "👾👾👾 Creatting users and monsters 👾👾👾"
+puts "👾👾👾 Creatting users, bookings and monsters 👾👾👾"
 
 species = ["water", "earth", "ghost", "fire"]
 
@@ -27,12 +28,28 @@ species = ["water", "earth", "ghost", "fire"]
   monster = Monster.new(
     name: Faker::Games::Pokemon.name,
     species: species.sample,
+    ability: Faker::Games::Pokemon.move,
+    price: (100..1000).to_a.sample,
     address: Faker::Address.city
   )
 
   user.save
   monster.user = user
   monster.save
+end
+
+users = User.all
+monsters = Monster.all
+
+10.times do
+  booking = Booking.new(
+    start_date: Date.today,
+    end_date: Date.today + 1
+  )
+
+  booking.user = users.sample
+  booking.monster = monsters.sample
+  booking.save
 end
 
 puts "🎉!!!FINITO BOYS!!!🎉"
