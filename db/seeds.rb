@@ -28,6 +28,8 @@ species = ["water", "earth", "ghost", "fire"]
   monster = Monster.new(
     name: Faker::Games::Pokemon.name,
     species: species.sample,
+    ability: Faker::Games::Pokemon.move,
+    price: (100..1000).to_a.sample,
     address: Faker::Address.city
   )
 
