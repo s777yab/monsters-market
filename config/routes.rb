@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :monsters do
     resources :bookings, only: [:create]
+    resources :reviews, only: [:create]
   end
 end
