@@ -21,7 +21,7 @@ species = ["water", "earth", "ghost", "fire"]
 10.times do
   user = User.new(
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: "Password1234"
   )
 
   monster = Monster.new(
