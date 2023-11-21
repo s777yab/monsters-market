@@ -3,9 +3,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @monster = Monster.find(params[:monster_id])
     @review.monster = @monster
+    @booking = Booking.new
     @review.user = current_user
     if @review.save
-      render "monsters/show", status: 200
+      redirect_to monster_path(@monster)
     else
       render "monsters/show", status: 422
     end
