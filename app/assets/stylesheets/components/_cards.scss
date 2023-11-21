@@ -1,12 +1,22 @@
-.card{  margin: 20px;
-        border-color: black;
-        background-color: white;
+.title{  margin: 20px;
+  background-color: rgb(255, 255, 255);
+}
+.card-body{
+  border-radius: 5px;
+  background-color: white;
+
+}
+.card{
+  margin: 10px;
+  border-radius: 5px;
+  border-color: black;
+  background-color: rgb(103, 3, 3);
 }
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
 }
 
 // Smallest device
