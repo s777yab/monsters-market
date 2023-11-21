@@ -1,8 +1,29 @@
-<h1>Test to see if user page is working</h1>
+<h1>Dashboard</h1>
 
+<h2>My bookings</h2>
+
+<% current_user.bookings.each do |booking| %>
+  <h3><%= booking.monster.name %></h3>
+  <ul>
+    <li>Species: <%= booking.monster.species %></li>
+    <li>Price: <%= booking.monster.price %></li>
+    <li>Start date: <%= booking.start_date %></li>
+    <li>End date: <%= booking.end_date %></li>
+  </ul>
+<% end %>
+
+<h2>My monsters</h2>
+
+<%# new monster %>
+<%= link_to "List new monster", new_monster_path %>
+
+<% current_user.monsters.each do |monster| %>
+<h3><%= monster.name %></h3>
+<%# edit/update monster %>
+<%= link_to "Edit monster details", edit_monster_path(monster) %>
 <ul>
-  <% @bookings.each do |booking| %>
-  <li><%= booking.monster.name %></li>
-  <li><%= booking.user.email %></li>
-  <% end %>
-</ul>
+    <li>Species: <%= monster.species %></li>
+    <li>Price: <%= monster.ability %></li>
+    <li>Start date: <%= monster.price %></li>
+  </ul>
+<% end %>
