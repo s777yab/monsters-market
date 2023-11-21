@@ -1,6 +1,6 @@
 class MonstersController < ApplicationController
 
-  before_action :set_monster, only: [:show, :edit, :update]
+  before_action :set_monster, only: [:show, :edit, :update, :destroy]
   before_action :monster_params, only: [:create]
 
   def index
@@ -36,6 +36,11 @@ class MonstersController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @monster.destroy
+    redirect_to user_path, status: :see_other
   end
 
   private

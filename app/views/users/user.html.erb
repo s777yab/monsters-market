@@ -23,7 +23,9 @@
 <%= link_to "Edit monster details", edit_monster_path(monster) %>
 <ul>
     <li>Species: <%= monster.species %></li>
-    <li>Price: <%= monster.ability %></li>
-    <li>Start date: <%= monster.price %></li>
+    <li>Start date: <%= monster.ability %></li>
+    <li>Price: <%= monster.price %></li>
   </ul>
+
+<%= link_to "Delete", monster_path(monster), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 <% end %>
