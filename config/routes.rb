@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :monsters
-
-  post "monsters/:monster_id/bookings", to: "bookings#create", as: :bookings
+  resources :monsters do
+    resources :bookings, only: [:create]
+  end
 end
