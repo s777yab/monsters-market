@@ -3,11 +3,12 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(bookings_params)
     @booking.user = current_user
-    @booking.monster_id = params[:monster_id]
+    @monster = Monster.find(params[:monster_id])
+    @booking.monster = @monster
     if @booking.save
       redirect_to user_path(current_user)
     else
-      render monster_path(params[:monster_id])
+      render "monsters/show", status: :unprocessable_entity
     end
   end
 
