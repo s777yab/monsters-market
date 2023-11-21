@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :monsters
+
+  post "monsters/:monster_id/bookings", to: "bookings#create", as: :bookings
 end
