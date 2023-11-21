@@ -16,7 +16,14 @@
 <div>
   <%= simple_form_for([@monster, @review])  do |f| %>
     <%= f.input :comment, as: :text %>
-    <%= f.input :rating, collection: (1.0..5.0).to_a %>
+    <%= f.input :rating, collection: 1..5 %>
     <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+
+<div>
+  <% @monster.reviews.each do |review| %>
+  <p><%= review %></p>
   <% end %>
 </div>

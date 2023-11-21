@@ -1,6 +1,6 @@
 class MonstersController < ApplicationController
 
-  before_action :set_monster, only: [:show]
+  before_action :set_monster, only: [:show, :edit, :update]
   before_action :monster_params, only: [:create]
 
   def index
@@ -26,6 +26,18 @@ class MonstersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @monster.update(monster_params)
+    if @monster.save
+      redirect_to user_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_monster
@@ -35,5 +47,4 @@ class MonstersController < ApplicationController
   def monster_params
     params.require(:monster).permit(:name, :species, :ability, :address, :price, :photo)
   end
-
 end
