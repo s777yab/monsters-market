@@ -1,31 +1,43 @@
-<h1>Dashboard</h1>
+<h1 class="mb-3">Dashboard</h1>
 
-<h2>My bookings</h2>
+ <div class="my-bookings-container monster-spec-background-color p-3 mb-2">
+  <h2 class="mb-3">My Bookings</h2>
+  <% current_user.bookings.each do |booking| %>
+    <div class="card-trip">
+        <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
+        <%= cl_image_tag(booking.monster.photo.key, height: 200, width: 350, crop: :fill, :class => "show-photo-border-radius") %>
+      <div class="card-trip-infos">
+        <div>
+          <h3><%= booking.monster.name %></h3>
+          <p><strong>Species: </strong><%= booking.monster.species %></p>
+          <p><strong>Booked: </strong><%= "#{booking.start_date} - #{booking.end_date}" %></p>
+        </div>
+        <div>
+        <% days = booking.end_date - booking.start_date %>
+        <p><strong>Total cost: </strong><%= "£#{ days.to_i * booking.monster.price.round }"%></p>
+        <p><%= "£#{ booking.monster.price.round } per day " %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
 
-<% current_user.bookings.each do |booking| %>
-  <h3><%= booking.monster.name %></h3>
-  <ul>
-    <li>Species: <%= booking.monster.species %></li>
-    <li>Price: <%= booking.monster.price %></li>
-    <li>Start date: <%= booking.start_date %></li>
-    <li>End date: <%= booking.end_date %></li>
-  </ul>
-<% end %>
+  <div class="my-monsters-container monster-spec-background-color p-3">
+    <h2 class="mb-3">My Monsters</h2>
 
-<h2>My monsters</h2>
+    <%# new monster %>
+    <%= link_to "List new monster", new_monster_path %>
 
-<%# new monster %>
-<%= link_to "List new monster", new_monster_path %>
+    <% current_user.monsters.each do |monster| %>
+    <h3><%= monster.name %></h3>
+    <%# edit/update monster %>
+    <%= link_to "Edit monster details", edit_monster_path(monster) %>
+    <ul>
+        <li>Species: <%= monster.species %></li>
+        <li>Start date: <%= monster.ability %></li>
+        <li>Price: <%= monster.price %></li>
+      </ul>
 
-<% current_user.monsters.each do |monster| %>
-<h3><%= monster.name %></h3>
-<%# edit/update monster %>
-<%= link_to "Edit monster details", edit_monster_path(monster) %>
-<ul>
-    <li>Species: <%= monster.species %></li>
-    <li>Start date: <%= monster.ability %></li>
-    <li>Price: <%= monster.price %></li>
-  </ul>
-
-<%= link_to "Delete", monster_path(monster), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-<% end %>
+    <%= link_to "Delete", monster_path(monster), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <% end %>
+  </div>
