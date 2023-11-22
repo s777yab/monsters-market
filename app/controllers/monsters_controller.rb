@@ -67,6 +67,6 @@ class MonstersController < ApplicationController
   end
 
   def monster_params
-    params.require(:monster).permit(:name, :species, :ability, :address, :price, :photo)
+    params.require(:monster).permit(:name, :species, :ability, :address, :price, :photo, :bookable)
   end
 end
