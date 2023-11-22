@@ -11,6 +11,12 @@
   width: 40px;
 }
 
-.nav-item {
+.nav-link {
   margin: 5px;
+  border-radius: 22px;
+
+  &:hover {
+    // border-radius: 22px;
+    background-color: rgba(0, 0, 0, 0.243);
+  }
 }
