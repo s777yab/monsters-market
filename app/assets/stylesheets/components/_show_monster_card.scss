@@ -33,4 +33,13 @@ h1 {
 .review-backgroud-color-white {
   background-color: white;
   border-radius: 10px;
+
+  .review-card {
+    background-color: lightgray;
+    border-radius: 10px;
+  }
+
+  p {
+    margin: 0;
+  }
 }
