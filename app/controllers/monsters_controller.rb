@@ -5,6 +5,16 @@ class MonstersController < ApplicationController
 
   def index
     @monsters = Monster.all
+
+    @bookable_monsters = bookable?
+
+    # The `geocoded` scope filters only monsters with coordinates
+    @markers = @bookable_monsters.geocoded.map do |monster|
+      {
+        lat: monster.latitude,
+        lng: monster.longitude
+      }
+    end
   end
 
   def show
