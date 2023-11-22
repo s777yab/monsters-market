@@ -33,10 +33,10 @@
   <div class="d-flex">
     <div class="p-3 review-backgroud-color-white mr-2 my-2 w-50">
       <%= simple_form_for([@monster, @review]) do |f| %>
-        <h2>Leave review</h2>
+        <h2>Leave a review</h2>
         <%= f.input :rating, collection: 1..5, label_html: { class: "booking-form-label-font-size"} %>
         <%= f.input :comment, as: :text, label_html: { class: "booking-form-label-font-size"} %>
-        <%= f.button :submit, 'Leave a review!', class: "btn-outline-dark w-100" %>
+        <%= f.button :submit, 'Leave review!', class: "btn-outline-dark w-100" %>
       <% end %>
     </div>
 
