@@ -45,7 +45,6 @@ class MonstersController < ApplicationController
   end
 
   # Checkif monster is bookable
-  # if booking active monster not bookable
   def bookable?
     @bookable_monsters = Monster.where(bookable: true)
   end

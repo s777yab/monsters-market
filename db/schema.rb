@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_22_112653) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_22_120823) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +64,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_112653) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "bookable"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_monsters_on_user_id"
   end
 
