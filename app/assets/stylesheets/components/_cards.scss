@@ -1,8 +1,6 @@
-body {
-  background-color: white;
-}
+
 .title{  margin: 20px;
-  background-color: rgb(255, 255, 255);
+  background-color: #f4f4f4;
 }
 .card-body{
   border-radius: 5px;
@@ -27,7 +25,10 @@ body {
   height: 250px;
   object-fit: contain;
 }
-
+.show-photo-border-radius{
+  height: 250px;
+  object-fit: contain
+}
 
 
 // Smallest device
