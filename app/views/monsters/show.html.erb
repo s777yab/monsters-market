@@ -18,7 +18,7 @@
         <%= f.input :start_date, as: :date, label_html: { class: "booking-form-label-font-size"}, input_html: { class: "p-2" } %>
         <%= f.input :end_date, as: :date, label_html: { class: "booking-form-label-font-size"}, input_html: { class: "p-2" } %>
         <h3 class="my-4"><%= @monster.price %>$ / per day</h3>
-        <%= f.button :submit, class: "btn-dark mb-3" %>
+        <%= f.button :submit, 'Book now!', class: "btn-dark mb-3" %>
       <% end %>
     </div>
   </div>
@@ -28,7 +28,7 @@
       <h2>Leave review</h2>
       <%= f.input :comment, as: :text %>
       <%= f.input :rating, collection: 1..5 %>
-      <%= f.button :submit, class: "btn-outline-dark" %>
+      <%= f.button :submit, 'Leave a review!', class: "btn-outline-dark" %>
     <% end %>
   </div>
 
