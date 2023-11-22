@@ -17,7 +17,8 @@
         <div class="card-body text-center">
           <h5 class="card-title"><%= monster.name %></h5>
           <p class="card-text">Price: $<%= monster.price %></p>
-          <%= link_to "Monster", monster_path(monster), class: "btn btn-outline-dark"  %>
+          <%= link_to "Monster", monster_path(monster), class: "btn btn-outline-dark" %>
+          <%= link_to "Delete", monster_path(monster), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         </div>
       </div>
     </div>
