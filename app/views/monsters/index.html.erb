@@ -12,12 +12,12 @@
 <div class="row">
   <% @monsters.each do |monster| %>
     <div class="col-12 col-lg-3">
-      <div class="card">
+      <div class="card px-3">
         <%= cl_image_tag(monster.photo.key, :class => "card-img-top") %>
-        <div class="card-body">
-          <h5 class="card-title text-center"><%= monster.name %></h5>
-          <p class="card-text text-center">Price: $<%= monster.price %></p>
-          <%= link_to "Monster", monster_path(monster), class: "btn btn-outline-dark text-center" %>
+        <div class="card-body text-center">
+          <h5 class="card-title"><%= monster.name %></h5>
+          <p class="card-text">Price: $<%= monster.price %></p>
+          <%= link_to "Monster", monster_path(monster), class: "btn btn-outline-dark"  %>
         </div>
       </div>
     </div>
