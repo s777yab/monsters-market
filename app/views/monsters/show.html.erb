@@ -1,6 +1,7 @@
 <div class="container">
   <div class="d-flex">
     <div class="flex-direction">
+      <%# turn a picture into a bakground image for resizing and filling purposes %>
       <%= cl_image_tag(@monster.photo.key, height: 250, width: 400, crop: :fill, :class => "show-photo-border-radius") %>
       <div class="align-self-center mt-2 p-3 monster-spec-background-color">
         <h1 class="monster-list-margin"><%= @monster.name.capitalize %></h1>
