@@ -4,7 +4,6 @@
   <h2 class="mb-3">My Bookings</h2>
   <% current_user.bookings.each do |booking| %>
     <div class="card-trip">
-        <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
         <%= cl_image_tag(booking.monster.photo.key, height: 200, width: 350, crop: :fill, :class => "show-photo-border-radius") %>
       <div class="card-trip-infos">
         <div>
@@ -22,22 +21,21 @@
   <% end %>
   </div>
 
-  <div class="my-monsters-container monster-spec-background-color p-3">
+  <div class="monster-spec-background-color p-3">
     <h2 class="mb-3">My Monsters</h2>
-
-    <%# new monster %>
     <%= link_to "List new monster", new_monster_path %>
-
-    <% current_user.monsters.each do |monster| %>
-    <h3><%= monster.name %></h3>
-    <%# edit/update monster %>
-    <%= link_to "Edit monster details", edit_monster_path(monster) %>
-    <ul>
-        <li>Species: <%= monster.species %></li>
-        <li>Start date: <%= monster.ability %></li>
-        <li>Price: <%= monster.price %></li>
-      </ul>
-
-    <%= link_to "Delete", monster_path(monster), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    <% end %>
+    <div class="my-monsters-container">
+      <% current_user.monsters.each do |monster| %>
+        <div class="my-monster-card col-3 col-lg-3">
+          <%= cl_image_tag(monster.photo.key, height: 200, width: 350, crop: :fill, :class => "show-photo-border-radius") %>
+            <div class="my-monster-text mt-2">
+              <h3><%= monster.name %></h3>
+              <p><strong>Species: </strong><%= monster.species %></p>
+              <p><strong>Ability: </strong><%= monster.ability %></p>
+              <p><strong>Price: </strong>£<%= monster.price.round %> /day</p>
+              <%= link_to "Edit monster details", edit_monster_path(monster) %>
+            </div>
+        </div>
+      <% end %>
+    </div>
   </div>
