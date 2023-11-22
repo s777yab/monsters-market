@@ -164,6 +164,8 @@ file = URI.open("https://imageio.forbes.com/blogs-images/olliebarder/files/2018/
 monster10.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 monster10.save!
 
+Monster.update_all(bookable: true)
+
 puts "Creating bookings"
 
 booking = Booking.new(
