@@ -3,13 +3,22 @@
 <h2>My bookings</h2>
 
 <% current_user.bookings.each do |booking| %>
-  <h3><%= booking.monster.name %></h3>
-  <ul>
-    <li>Species: <%= booking.monster.species %></li>
-    <li>Price: <%= booking.monster.price %></li>
-    <li>Start date: <%= booking.start_date %></li>
-    <li>End date: <%= booking.end_date %></li>
-  </ul>
+<div class="card-trip">
+    <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
+    <%= cl_image_tag(booking.monster.photo.key, height: 200, width: 350, crop: :fill, :class => "show-photo-border-radius") %>
+  <div class="card-trip-infos">
+    <div>
+      <h3><%= booking.monster.name %></h3>
+      <p><strong>Species: </strong><%= booking.monster.species %></p>
+      <p><strong>Booked: </strong><%= "#{booking.start_date} - #{booking.end_date}" %></p>
+    </div>
+    <div>
+    <% days = booking.end_date - booking.start_date %>
+    <p><strong>Total cost: </strong><%= "£#{ days.to_i * booking.monster.price.round }"%></p>
+    <p><%= "£#{ booking.monster.price.round } per day " %></p>
+    </div>
+  </div>
+</div>
 <% end %>
 
 <h2>My monsters</h2>

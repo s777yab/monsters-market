@@ -10,7 +10,7 @@
   margin: 10px;
   border-radius: 5px;
   border-color: black;
-  background-color: rgb(103, 3, 3);
+  background-color: rgb(255, 255, 255);
 }
 .cards {
   display: grid;
@@ -18,6 +18,12 @@
   grid-gap: 16px;
   background-color: rgb(255, 255, 255);
 }
+
+.card-img-top {
+  height: 250px;
+  object-fit: contain;
+}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
@@ -52,4 +58,46 @@
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+// Cards for bookings
+
+.card-trip {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 7px;
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  float: left;
+  border-radius: 10px;
+}
+
+.card-trip h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 16px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-trip-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
