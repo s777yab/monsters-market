@@ -1,7 +1,7 @@
 class MonstersController < ApplicationController
-
   before_action :set_monster, only: %i[show edit update destroy]
   before_action :monster_params, only: [:create]
+  before_action :bookable?, only: [:show]
 
   def index
     @monsters = Monster.all
@@ -12,7 +12,8 @@ class MonstersController < ApplicationController
     @markers = @bookable_monsters.geocoded.map do |monster|
       {
         lat: monster.latitude,
-        lng: monster.longitude
+        lng: monster.longitude,
+        popup_monster_html: render_to_string(partial: "popup_monster", locals: {monster: monster})
       }
     end
   end
@@ -54,12 +55,12 @@ class MonstersController < ApplicationController
     redirect_to user_path, status: :see_other
   end
 
+  private
+
   # Checkif monster is bookable
   def bookable?
     @bookable_monsters = Monster.where(bookable: true)
   end
-
-  private
 
   def set_monster
     @monster = Monster.find(params[:id])
