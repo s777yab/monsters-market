@@ -34,10 +34,14 @@
   <div class="card-trip-infos">
     <div>
       <h3><%= booking.monster.name %></h3>
-      <p>Species: <%= booking.monster.species %></p>
+      <p><strong>Species: </strong><%= booking.monster.species %></p>
+      <p><strong>Booked: </strong><%= "#{booking.start_date} - #{booking.end_date}" %></p>
     </div>
-    <p>Booked: <%= "#{booking.start_date} - #{booking.end_date}" %></p>
-    <p>Total cost: <%= "£#{booking.monster.price}" %></p>
+    <div>
+    <% days = booking.end_date - booking.start_date %>
+    <p><strong>Total cost: </strong><%= "£#{ days.to_i * booking.monster.price.round }"%></p>
+    <p><%= "£#{ booking.monster.price.round } per day " %></p>
+    </div>
   </div>
 </div>
 <% end %>
