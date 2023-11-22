@@ -1,6 +1,6 @@
 class MonstersController < ApplicationController
 
-  before_action :set_monster, only: [:show, :edit, :update, :destroy]
+  before_action :set_monster, only: %i[show edit update destroy]
   before_action :monster_params, only: [:create]
 
   def index
@@ -19,6 +19,7 @@ class MonstersController < ApplicationController
   def create
     @monster = Monster.new(monster_params)
     @monster.user = current_user
+    @monster.bookable = true
     if @monster.save
       redirect_to monster_path(@monster)
     else
@@ -43,8 +44,11 @@ class MonstersController < ApplicationController
     redirect_to user_path, status: :see_other
   end
 
-  # Check if booking for monster is active
+  # Checkif monster is bookable
   # if booking active monster not bookable
+  def bookable?
+    @bookable_monsters = Monster.where(bookable: true)
+  end
 
   private
 
