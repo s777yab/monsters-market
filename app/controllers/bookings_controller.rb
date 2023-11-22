@@ -7,11 +7,14 @@ class BookingsController < ApplicationController
     @review = Review.new
     @booking.monster = @monster
     if @booking.save
+      # Monster is not longer bookable
       redirect_to user_path(current_user)
     else
       render "monsters/show", status: :unprocessable_entity
     end
   end
+
+  # change bookings to inactive if today date >= end_date
 
   private
 

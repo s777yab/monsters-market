@@ -43,6 +43,9 @@ class MonstersController < ApplicationController
     redirect_to user_path, status: :see_other
   end
 
+  # Check if booking for monster is active
+  # if booking active monster not bookable
+
   private
 
   def set_monster
