@@ -6,8 +6,15 @@
       <div class="align-self-center mt-2 p-3 monster-spec-background-color">
         <h1 class="monster-list-margin"><%= @monster.name.capitalize %></h1>
         <div class="display-ability-species-margin">
-          <p class="monster-list-margin"><span>Species:</span> <%= @monster.species.capitalize %></p>
-          <p class="monster-list-margin"><span>Ability:</span> <%= @monster.ability.capitalize %></p>
+          <div class="d-flex">
+            <div class="w-50">
+              <p class="monster-list-margin"><span>Species:</span> <%= @monster.species.capitalize %></p>
+              <p class="monster-list-margin"><span>Ability:</span> <%= @monster.ability.capitalize %></p>
+            </div>
+            <div class="w-50">
+              <p><span>Address:</span> <%= @monster.address %></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
