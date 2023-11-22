@@ -4,7 +4,8 @@
 
 <% current_user.bookings.each do |booking| %>
 <div class="card-trip">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
+    <%= cl_image_tag(booking.monster.photo.key, height: 200, width: 350, crop: :fill, :class => "show-photo-border-radius") %>
   <div class="card-trip-infos">
     <div>
       <h3><%= booking.monster.name %></h3>
