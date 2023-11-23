@@ -4,10 +4,11 @@ class MonstersController < ApplicationController
   before_action :bookable?, only: [:show]
 
   def index
-    @monsters = bookable_and_nearby_monsters
+    @monsters = near_and_bookable
+
 
     # The `geocoded` scope filters only monsters with coordinates
-    @markers = bookable_and_nearby_monsters.geocoded.map do |monster|
+    @markers = @monsters.map do |monster|
       {
         lat: monster.latitude,
         lng: monster.longitude,
@@ -61,14 +62,10 @@ class MonstersController < ApplicationController
 
   private
 
-  # Checkif monster is bookable
-  def bookable?
-    @bookable_monsters = Monster.where(bookable: true)
-  end
-
-  # Check if monster is near
-  def near?
-    @nearby_monsters = Monster.near(current_user.address, 20)
+  # Check if monster is near and bookable
+  def near_and_bookable
+    near_monsters = Monster.near(current_user.address, 20)
+    near_monsters.select(&:bookable?)
   end
 
   def set_monster

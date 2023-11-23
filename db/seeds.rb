@@ -40,6 +40,15 @@ tony = User.create(
   username: "tonyM"
 )
 
+alan = User.create(
+  email: 'alan@gmail.com',
+  password: "123456",
+  address: "London",
+  first_name: "Alan",
+  last_name: "Miller",
+  username: "alanM"
+)
+
 User.create(
   email: 'marco@gmail.com',
   password: "123456",
@@ -179,17 +188,43 @@ file = URI.open("https://imageio.forbes.com/blogs-images/olliebarder/files/2018/
 monster10.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 monster10.save!
 
+monster11 = Monster.new(
+  name: "Booked monster!",
+  species: species.sample,
+  ability: Faker::Games::Pokemon.move,
+  price: (100..1000).to_a.sample,
+  address: 'London',
+  user: tony
+)
+file = URI.open("https://imageio.forbes.com/blogs-images/olliebarder/files/2018/06/pokeball_mew-1200x675.jpg?format=jpg&height=900&width=1600&fit=bounds")
+monster11.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+monster11.save!
+
+monster12 = Monster.new(
+  name: Faker::Games::Pokemon.name,
+  species: species.sample,
+  ability: Faker::Games::Pokemon.move,
+  price: (100..1000).to_a.sample,
+  address: 'Hoxton, London',
+  user: alan
+)
+file = URI.open("https://imageio.forbes.com/blogs-images/olliebarder/files/2018/06/pokeball_mew-1200x675.jpg?format=jpg&height=900&width=1600&fit=bounds")
+monster12.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+monster12.save!
+
 Monster.update_all(bookable: true)
 
 puts "Creating bookings"
 
 booking = Booking.new(
   start_date: Date.today,
-  end_date: Date.today + 1
+  end_date: Date.today + 1,
+  active: true
 )
 
-booking.user = sayyab
-booking.monster = monster10
+booking.user = alan
+booking.monster = monster11
+monster11.update(bookable: false)
 booking.save!
 
 puts "🎉!!!FINITO BOYS!!!🎉"
