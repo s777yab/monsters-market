@@ -3,36 +3,46 @@
   <h1 class="text-center">Monsters Market </h1>
 </div>
 
-<div id="map"
-  style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
-<div class="form-inline w-25 mt-4 mb-2">
-<%= form_with url: root_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control rounded mr-sm-2",
-            placeholder: "Enter monster/seller info"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-outline-dark" %>
+<div class="form-inline w-50 mt-4 mb-2 search-bar-center" id="search-bar">
+  <%= form_with url: monsters_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+          params[:query],
+          class: "form-control bg-color-white",
+          placeholder: "Enter monster/seller info"
+    %>
+    <%= button_tag(type: "submit", class: "btn btn-outline-dark px-3") do %>
+      <i class="fa-solid fa-magnifying-glass"></i>
     <% end %>
+  <% end %>
 </div>
 
-<div class="row">
-  <% @monsters.each do |monster| %>
-    <div class="col-12 col-lg-3">
-      <%= link_to monster_path(monster) do %>
-        <div class="card px-3">
-          <%= cl_image_tag(monster.photo.key, :class => "card-img-top") %>
-          <div class="card-body text-center">
-            <h5 class="card-title"><%= monster.name %></h5>
-            <p class="card-text">Price: $<%= monster.price %></p>
-          </div>
+<% if @monsters.any? %>
+  <div class="d-flex my-3">
+    <div class="bg-color-white cards">
+      <% @monsters.each do |monster| %>
+        <div class="m-3">
+          <%= link_to monster_path(monster) do %>
+            <div class="card px-3">
+              <%= cl_image_tag(monster.photo.key, :class => "card-img-top") %>
+              <div class="card-body text-center">
+                <h5 class="card-title"><%= monster.name %></h5>
+                <p class="card-text">Price: $<%= monster.price %></p>
+              </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
-  <% end %>
-</div>
+
+    <div id="map"
+      style="width: 40%; height: 750px;"
+      class="p-2"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+<% else %>
+  <h2>No results for this search...</h2>
+  <p>Try username, species of a monster or name of a monster.</p>
+<% end %>
