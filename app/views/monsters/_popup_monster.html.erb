@@ -1,2 +1,10 @@
-<h2><%= monster.name %></h2>
-<p><%= monster.address %></p>
+<div class="text-center">
+  <div class="popup-monster-photo-center">
+    <%= cl_image_tag(monster.photo.key, height: 150, width: 200, :class => "popup-monster-photo-center") %>
+  </div>
+
+  <h2><%= monster.name %></h2>
+  <p><%= monster.address %></p>
+
+  <%= link_to "Check me!", monster_path(monster), class: "btn btn-outline-dark" %>
+</div>

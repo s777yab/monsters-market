@@ -6,8 +6,15 @@
       <div class="align-self-center mt-2 p-3 monster-spec-background-color">
         <h1 class="monster-list-margin"><%= @monster.name.capitalize %></h1>
         <div class="display-ability-species-margin">
-          <p class="monster-list-margin"><span>Species:</span> <%= @monster.species.capitalize %></p>
-          <p class="monster-list-margin"><span>Ability:</span> <%= @monster.ability.capitalize %></p>
+          <div class="d-flex">
+            <div class="w-50">
+              <p class="monster-list-margin"><span>Species:</span> <%= @monster.species.capitalize %></p>
+              <p class="monster-list-margin"><span>Ability:</span> <%= @monster.ability.capitalize %></p>
+            </div>
+            <div class="w-50">
+              <p><span>Address:</span> <%= @monster.address %></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -17,28 +24,30 @@
         <h2>Book your monster</h2>
         <%= f.input :start_date, as: :date, label_html: { class: "booking-form-label-font-size"}, input_html: { class: "p-2" } %>
         <%= f.input :end_date, as: :date, label_html: { class: "booking-form-label-font-size"}, input_html: { class: "p-2" } %>
-        <h3 class="my-4"><%= @monster.price %>$ / per day</h3>
-        <%= f.button :submit, class: "btn-dark mb-3" %>
+        <h3 class="my-4"><%= @monster.price %>£ / per day</h3>
+        <%= f.button :submit, 'Book now!', class: "btn-dark mb-3" %>
       <% end %>
     </div>
   </div>
 
-  <div class="p-3 review-backgroud-color-white my-2">
-    <%= simple_form_for([@monster, @review]) do |f| %>
-      <h2>Leave review</h2>
-      <%= f.input :comment, as: :text %>
-      <%= f.input :rating, collection: 1..5 %>
-      <%= f.button :submit, class: "btn-outline-dark" %>
-    <% end %>
-  </div>
-
-
-  <div class="review-backgroud-color-white my-3 p-3">
-    <% @monster.reviews.each do |review| %>
-    <div class="review-card p-1 m-2">
-      <p><%= "⭐️" * review.rating %></p>
-      <p><%= review.comment %></p>
+  <div class="d-flex">
+    <div class="p-3 review-backgroud-color-white mr-2 my-2 w-50">
+      <%= simple_form_for([@monster, @review]) do |f| %>
+        <h2>Leave a review</h2>
+        <%= f.input :rating, collection: 1..5, label_html: { class: "booking-form-label-font-size"} %>
+        <%= f.input :comment, as: :text, label_html: { class: "booking-form-label-font-size"} %>
+        <%= f.button :submit, 'Leave review!', class: "btn-outline-dark w-100" %>
+      <% end %>
     </div>
-    <% end %>
+
+
+    <div class="review-backgroud-color-white reviews-card-margin-left my-2 p-3 w-50">
+      <% @monster.reviews.each do |review| %>
+        <div class="p-1 border-bottom">
+          <p><%= "⭐️" * review.rating %></p>
+          <p><%= review.comment %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
