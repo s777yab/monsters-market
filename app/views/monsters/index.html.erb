@@ -4,7 +4,7 @@
 </div>
 
 <div class="form-inline w-50 mt-4 mb-2 search-bar-center" id="search-bar">
-  <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+  <%= form_with url: monsters_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
           params[:query],
           class: "form-control bg-color-white",
