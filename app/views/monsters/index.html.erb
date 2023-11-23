@@ -10,12 +10,14 @@
           class: "form-control bg-color-white",
           placeholder: "Enter monster/seller info"
     %>
-    <%= submit_tag "Search", name: "", class: "btn btn-outline-dark" %>
+    <%= button_tag(type: "submit", class: "btn btn-outline-dark px-3") do %>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
   <% end %>
 </div>
 
 <% if @monsters.any? %>
-  <div class="d-flex">
+  <div class="d-flex my-3">
     <div class="bg-color-white cards">
       <% @monsters.each do |monster| %>
         <div class="m-3">
@@ -33,7 +35,7 @@
     </div>
 
     <div id="map"
-      style="width: 45%; height: 750px;"
+      style="width: 40%; height: 750px;"
       class="p-2"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
