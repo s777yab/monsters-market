@@ -16,11 +16,9 @@ Monster.destroy_all
 User.destroy_all
 Booking.destroy_all
 
-
 puts "👾👾👾 Creatting users, bookings and monsters 👾👾👾"
 
 species = ["water", "earth", "ghost", "fire"]
-
 
 puts "Creating users"
 user1 = User.create(
