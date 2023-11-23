@@ -34,12 +34,11 @@ h1 {
   background-color: white;
   border-radius: 10px;
 
-  .review-card {
-    background-color: lightgray;
-    border-radius: 10px;
-  }
-
   p {
     margin: 0;
   }
+}
+
+.reviews-card-margin-left {
+  margin-left: 0.5rem;
 }

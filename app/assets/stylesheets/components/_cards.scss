@@ -1,16 +1,18 @@
+
 .title{  margin: 20px;
-  background-color: rgb(255, 255, 255);
+  background-color: #f4f4f4;
 }
 .card-body{
   border-radius: 5px;
   background-color: white;
-
 }
 .card{
   margin: 10px;
   border-radius: 5px;
   border-color: black;
   background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 .cards {
   display: grid;
@@ -22,6 +24,10 @@
 .card-img-top {
   height: 250px;
   object-fit: contain;
+}
+.show-photo-border-radius{
+  height: 250px;
+  object-fit: contain
 }
 
 
@@ -99,4 +105,28 @@
   width: 100%;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.my-monsters-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.my-monster-card {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-monster-card img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 10px;
 }
