@@ -4,12 +4,12 @@ class MonstersController < ApplicationController
   before_action :bookable?, only: [:show]
 
   def index
-    @monsters = Monster.all
+    bookable_and_nearby_monsters = bookable? && near?
 
-    @bookable_and_nearby_monsters = bookable? && near?
+    @monsters = bookable_and_nearby_monsters
 
     # The `geocoded` scope filters only monsters with coordinates
-    @markers = @bookable_and_nearby_monsters.geocoded.map do |monster|
+    @markers = bookable_and_nearby_monsters.geocoded.map do |monster|
       {
         lat: monster.latitude,
         lng: monster.longitude,
