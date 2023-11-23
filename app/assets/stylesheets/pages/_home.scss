@@ -23,23 +23,26 @@
   color: white;
   opacity: 1;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  .bold {
+    color: #00FF00;
+  }
 }
 
 .footer {
-  background: #F4F4F4;
+  background: rgb(32, 32, 32);
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  color: rgba($color: white, $alpha: 0.3);
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: black;
+  color: white;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
@@ -54,11 +57,12 @@
 
 .section-1, .section-2, .section-3 {
   color: white;
-  background-color: rgb(54, 54, 54);
+  background-color: #3e3d3d;
   font-weight: bold;
   text-align: center;
   text-shadow: 1px 2px 3px rgba(255,255,255,0.2);
   border-radius: 5px;
+  border-color: #404040;
   box-shadow: 0 0 15px rgba(59, 59, 59, 0.2);
   margin-top: 30px;
   margin-bottom: 30px;
@@ -71,7 +75,7 @@
   border-radius: 22px;
 
   &:hover {
-    color: grey;
-    background-color: rgba(0, 0, 0, 0.243);
+    color: #00FF00;
+    // background-color: rgba(0, 0, 0, 0.243);
   }
 }
