@@ -68,6 +68,7 @@ User.create(
 )
 
 puts "Creating monsters"
+
 monster1 = Monster.new(
   name: Faker::Games::Pokemon.name,
   species: species.sample,
