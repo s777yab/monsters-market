@@ -20,27 +20,31 @@ Booking.destroy_all
 puts "👾👾👾 Creatting users, bookings and monsters 👾👾👾"
 
 species = ["water", "earth", "ghost", "fire"]
-addresses = []
+
 
 puts "Creating users"
 user1 = User.create(
   email: 'sayyab@gmail.com',
-  password: "123456"
+  password: "123456",
+  address: "New York"
 )
 
 user2 = User.create(
   email: 'tony@gmail.com',
-  password: "123456"
+  password: "123456",
+  address: "Barcelona"
 )
 
-user3 = User.create(
+User.create(
   email: 'marco@gmail.com',
-  password: "123456"
+  password: "123456",
+  address: "London"
 )
 
-user4 = User.create(
+User.create(
   email: 'howard@gmail.com',
-  password: '123456'
+  password: '123456',
+  address: "Prague"
 )
 
 puts "Creating monsters"
@@ -49,7 +53,7 @@ monster1 = Monster.new(
   species: species.sample,
   ability: Faker::Games::Pokemon.move,
   price: (100..1000).to_a.sample,
-  address: 'Northampton Square, London EC1V 0HB',
+  address: "Brooklyn",
   user: user1
 )
 file = URI.open("https://i.kym-cdn.com/entries/icons/original/000/045/150/lopunny.jpg")
@@ -61,7 +65,7 @@ monster2 = Monster.new(
   species: species.sample,
   ability: Faker::Games::Pokemon.move,
   price: (100..1000).to_a.sample,
-  address: 'Oxford St, London WC1A 1DB',
+  address: 'Manhattan',
   user: user1
 )
 file = URI.open("https://media.cnn.com/api/v1/images/stellar/prod/210226040722-01-pokemon-anniversary-design.jpg?q=w_1920,h_1080,x_0,y_0,c_fill")
@@ -73,7 +77,7 @@ monster3 = Monster.new(
   species: species.sample,
   ability: Faker::Games::Pokemon.move,
   price: (100..1000).to_a.sample,
-  address: 'Farringdon Station, Cowcross St, London EC1M 6BY',
+  address: 'La Barceloneta',
   user: user1
 )
 file = URI.open("https://i.pinimg.com/736x/ec/85/ba/ec85ba62cdcbcae1b9fb996f40bb2d0a.jpg")
@@ -97,7 +101,7 @@ monster5 = Monster.new(
   species: species.sample,
   ability: Faker::Games::Pokemon.move,
   price: (100..1000).to_a.sample,
-  address: 'Geffrye St, London E2 8FF',
+  address: 'Kingston, London',
   user: user2
 )
 file = URI.open("https://img.pokemondb.net/artwork/large/basculegion-male.jpg")
@@ -109,7 +113,7 @@ monster6 = Monster.new(
   species: species.sample,
   ability: Faker::Games::Pokemon.move,
   price: (100..1000).to_a.sample,
-  address: 'Braithwaite St, London E1 6GJ',
+  address: 'Hoxton, London',
   user: user2
 )
 file = URI.open("https://i.pinimg.com/originals/ca/f8/79/caf8795dd669f4d3271ef6b1fd17c9a2.jpg")
@@ -121,7 +125,7 @@ monster7 = Monster.new(
   species: species.sample,
   ability: Faker::Games::Pokemon.move,
   price: (100..1000).to_a.sample,
-  address: 'Underground Ltd, 75 Tottenham Ct Rd, London W1P 9PA',
+  address: 'Chelsea, London',
   user: user2
 )
 file = URI.open("https://static.wikia.nocookie.net/sonicpokemon/images/1/1f/Magikarp_AG_anime.png/revision/latest?cb=20130520060359")
@@ -133,7 +137,7 @@ monster8 = Monster.new(
   species: species.sample,
   ability: Faker::Games::Pokemon.move,
   price: (100..1000).to_a.sample,
-  address: 'Underground Ltd, Euston Rd., London NW1 2BN',
+  address: 'Zizkov, Prague',
   user: user1
 )
 file = URI.open("https://imageio.forbes.com/blogs-images/olliebarder/files/2018/06/pokeball_mew-1200x675.jpg?format=jpg&height=900&width=1600&fit=bounds")
@@ -145,7 +149,7 @@ monster9 = Monster.new(
   species: species.sample,
   ability: Faker::Games::Pokemon.move,
   price: (100..1000).to_a.sample,
-  address: 'Bernard St, London WC1N 1LJ',
+  address: 'Bousova, Prague',
   user: user1
 )
 file = URI.open("https://miro.medium.com/v2/resize:fit:302/1*KuSu6ZTyLAcRDwOsI9ZzZA.png")
@@ -157,7 +161,7 @@ monster10 = Monster.new(
   species: species.sample,
   ability: Faker::Games::Pokemon.move,
   price: (100..1000).to_a.sample,
-  address: '9AL Underground Ltd, St. Pancras, N 1, Euston Rd., London',
+  address: 'Namesti Republiky, Prague',
   user: user2
 )
 file = URI.open("https://imageio.forbes.com/blogs-images/olliebarder/files/2018/06/pokeball_mew-1200x675.jpg?format=jpg&height=900&width=1600&fit=bounds")
