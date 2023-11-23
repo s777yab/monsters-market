@@ -14,9 +14,9 @@
 
   <body>
     <%= render "/shared/navbar" %>
-    <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="<%= 'container' unless params[:controller] == "pages" && params[:action] == "home" %>">
+    <p class="notice mb-0"><%= notice %></p>
+    <p class="alert mb-0"><%= alert %></p>
     <%= yield %>
     </div>
   </body>
