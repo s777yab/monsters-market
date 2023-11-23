@@ -68,7 +68,7 @@ monster_addresses = [
   "Narodni Trida, Prague",
 
   "Pinehurst Ave, New York",
-  "Central, Park New York",
+  "Central Park, New York",
   "Manhattan, New York",
   "Brooklyn, New York",
   "Queens, New York",
