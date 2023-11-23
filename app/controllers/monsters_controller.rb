@@ -4,21 +4,19 @@ class MonstersController < ApplicationController
 
   def index
     @monsters = near_and_bookable
-
+    # The `geocoded` scope filters only monsters with coordinates
     if params[:query].present?
       @monsters = Monster.search_marketplace(params[:query])
     else
       @monsters
     end
 
-    # The `geocoded` scope filters only monsters with coordinates
     @markers = @monsters.map do |monster|
       {
         lat: monster.latitude,
         lng: monster.longitude,
         popup_monster_html: render_to_string(partial: "popup_monster", locals: { monster: monster })
       }
-
     end
   end
 
