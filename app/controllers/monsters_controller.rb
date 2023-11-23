@@ -4,7 +4,6 @@ class MonstersController < ApplicationController
   before_action :bookable?, only: [:show]
 
   def index
-    @monsters = Monster.all
 
     @bookable_monsters = bookable?
 
@@ -15,6 +14,12 @@ class MonstersController < ApplicationController
         lng: monster.longitude,
         popup_monster_html: render_to_string(partial: "popup_monster", locals: {monster: monster})
       }
+
+      if params[:query].present?
+        @monsters = Monster.search_marketplace(params[:query])
+      else
+        @monsters = Monster.all
+      end
     end
   end
 
