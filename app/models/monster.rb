@@ -12,7 +12,7 @@ class Monster < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_marketplace,
-    against: [ :name, :species, :ability ],
+    against: [ :name, :species, :ability, :address ],
     associated_against: {
       user: [:username]
     },
