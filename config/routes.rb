@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  get 'pages/home'
   devise_for :users
-  root to: "monsters#index"
+  root to: "pages#home"
 
   get '/user', to: 'users#user'
 

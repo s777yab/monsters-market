@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgb(32, 32, 32);
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,10 +15,11 @@
 .nav-link {
   margin: 5px;
   border-radius: 22px;
+  color: white;
 
   &:hover {
-    // border-radius: 22px;
-    background-color: rgba(0, 0, 0, 0.243);
+    color: #00FF00;
+    // background-color: rgba(0, 0, 0, 0.243);
   }
 }
 

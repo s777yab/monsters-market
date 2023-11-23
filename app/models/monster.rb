@@ -14,7 +14,7 @@ class Monster < ApplicationRecord
   pg_search_scope :search_marketplace,
     against: [ :name, :species, :ability ],
     associated_against: {
-      user: [:email]
+      user: [:username]
     },
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!

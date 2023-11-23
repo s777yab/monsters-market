@@ -68,6 +68,7 @@ User.create(
 )
 
 puts "Creating monsters"
+
 monster1 = Monster.new(
   name: Faker::Games::Pokemon.name,
   species: species.sample,
@@ -189,7 +190,7 @@ monster10.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 monster10.save!
 
 monster11 = Monster.new(
-  name: "Booked monster!",
+  name: Faker::Games::Pokemon.name,
   species: species.sample,
   ability: Faker::Games::Pokemon.move,
   price: (100..1000).to_a.sample,
