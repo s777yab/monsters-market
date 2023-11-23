@@ -1,27 +1,43 @@
 <div class="home-page">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://t3.ftcdn.net/jpg/04/05/47/04/360_F_405470402_vhSt8P1c9SqQ6N9r0zQ5JVWrx4fUFRP1.jpg);">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/5589913/pexels-photo-5589913.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);">
     <div class="container">
       <h1><strong>Monsters Market</strong></h1>
       <p>Monsters for Rent: Because sometimes a little <strong class="bold">chaos</strong> is just what your party needs!</p>
-      <%= link_to 'Find Out More', "#section2", class: 'button', id: "btn"%>
+      <div><%= link_to 'Find Out More', "#section2", class: 'button', id: "btn"%></div>
+      <div class="banner-start">
+        <div class="start-button">
+          <% if user_signed_in? %>
+            <%= link_to 'Start!', monsters_path %>
+          <%  else  %>
+            <%= link_to 'Start!', new_user_registration_path %>
+          <% end %>
+        </div>
+      </div>
+      <div><i class="fa-solid fa-chevron-down fa-2xl"></i></div>
     </div>
   </div>
   <div class="container mt-3">
     <div class="section-1">
+      <div class="sub-section-1">
       <h2>What we do!</h2>
-      <p>Welcome to Monsters Market, where we turn your events from 'meh' to 'monstrously marvelous'! Spice up your gatherings with our hilarious monster rentals. Need a sassy Sasquatch for your soiree or a mischievous imp to crash your office party? We've got creatures for every occasion. Forget the mundane – rent a monster and let the laughter begin!</p>
+      <p>We offer monsters to the world!</p>
       <%= link_to 'Checkout our monsters!', monsters_path, class: "button" %>
+      </div>
     </div>
     <div class="section-2">
+      <div class="sub-section-2">
       <h2>What can you do?</h2>
-      <p>Browse our eclectic catalog of creatures, choose the perfect monster to spice up your event, and easily book them for a memorable experience. After your monster shenanigans, don't forget to share the laughter – leave a review and let others know how our monsters made your day legendary! Rent, book, review – it's as easy as summoning a ghost (but way more fun)!</p>
+      <p>Admire, Book and stay Entertained by our unique mosters!</p>
+      </div>
     </div>
     <div class="section-3">
+      <div class="sub-section-3">
       <h2>Do you have a monster to monetize?</h2>
-      <p>Got a creature that deserves the spotlight? At Monsters Market, you're not just a client; you're a monster maestro! Showcase your unique monsters by listing them for rent and let others experience the magic you've created. It's your chance to unleash your imagination and share your monster masterpieces with the world. Join our community of monster enthusiasts, because who knows, your monster might be the star of someone else's party! Put your monsters up for rent and let the legendary adventures begin.</p>
+      <p>Got a creature that deserves the spotlight? Help him make a living!</p>
       <%= link_to 'Make use of your monster!', new_user_registration_path, class: "button"%>
-    </div>
+      </div>
   </div>
+</div>
   <div class="footer">
     <div class="footer-links">
       <a href="#"><i class="fab fa-github"></i></a>
@@ -34,4 +50,3 @@
       This footer is made with <i class="fas fa-heart"></i> at Le Wagon
     </div>
   </div>
-</div>
