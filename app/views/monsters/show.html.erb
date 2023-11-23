@@ -34,8 +34,15 @@
 
     <div class="review-backgroud-color-white my-2 p-3 mr-2 w-50 left-review-card-margin">
       <% @monster.reviews.each do |review| %>
-        <div class="p-1 border-bottom">
-          <p><%= "⭐️" * review.rating %></p>
+        <div class="review-box">
+          <div class="review-card-user-info">
+            <%= image_tag "https://upload.wikimedia.org/wikipedia/en/6/6a/Mike_Wazowski.png", class: "avatar-bordered border border-dark" %>
+              <div class="review-card-user-info-text">
+              <p><strong><%= review.user.username %></strong></p>
+              <p><%= review.user.address %></p>
+              </div>
+          </div>
+          <p><%= icon('fa-solid fa-ghost fa-fw', style: "color: #000000") * review.rating %></p>
           <p><%= review.comment %></p>
         </div>
       <% end %>
