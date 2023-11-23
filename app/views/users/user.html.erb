@@ -7,6 +7,8 @@
     <div class="my_monster d-flex justify-content-between">
       <h2 class="mb-3 ">My Monsters </h2>
       <%= link_to "List new monster", new_monster_path, class: "btn btn-dark mon-dash-btn" %>
+    </div>
+
       <% current_user.monsters.each do |monster| %>
         <div class="card-trip">
           <%= cl_image_tag(monster.photo.key, :class => "show-photo-border-radius") %>
@@ -21,7 +23,6 @@
           </div>
         </div>
       <% end %>
-    </div>
   </div>
 
 
