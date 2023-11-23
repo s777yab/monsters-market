@@ -2,7 +2,11 @@
   height: 40px;
 }
 
-.container-dashboard{
+.container-dashboard {
   display: flex ;
   justify-content: space-between;
+
+  .div {
+    overflow: scroll;
+  }
 }
