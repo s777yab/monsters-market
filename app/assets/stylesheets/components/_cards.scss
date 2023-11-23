@@ -1,19 +1,23 @@
 
-.title{  margin: 20px;
+.title {  margin: 20px;
   background-color: #f4f4f4;
 }
-.card-body{
+.card-body {
   border-radius: 5px;
   background-color: white;
 }
-.card{
+.card {
   margin: 10px;
   border-radius: 5px;
   border-color: black;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
+
+a {
+  text-decoration: none;
+}
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -25,7 +29,7 @@
   height: 250px;
   object-fit: contain;
 }
-.show-photo-border-radius{
+.show-photo-border-radius {
   height: 250px;
   object-fit: contain
 }
