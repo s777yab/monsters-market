@@ -24,25 +24,37 @@ puts "Creating users"
 user1 = User.create(
   email: 'sayyab@gmail.com',
   password: "123456",
-  address: "New York"
+  address: "New York",
+  first_name: "Sayyab",
+  last_name: "Khan",
+  username: "sayyabK"
 )
 
 user2 = User.create(
   email: 'tony@gmail.com',
   password: "123456",
-  address: "Barcelona"
+  address: "Barcelona",
+  first_name: "Tony",
+  last_name: "Masek",
+  username: "tonyM"
 )
 
 User.create(
   email: 'marco@gmail.com',
   password: "123456",
-  address: "London"
+  address: "London",
+  first_name: "Marco",
+  last_name: "Di Leo",
+  username: "marcoDL"
 )
 
 User.create(
   email: 'howard@gmail.com',
   password: '123456',
-  address: "Prague"
+  address: "Prague",
+  first_name: "Howard",
+  last_name: "Thompson",
+  username: "howardT"
 )
 
 puts "Creating monsters"
