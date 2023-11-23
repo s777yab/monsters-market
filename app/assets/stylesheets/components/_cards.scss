@@ -76,15 +76,16 @@ a {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
-  display: flex;
+  display: flex ;
   flex-direction: row;
   padding: 10px;
   margin-bottom: 7px;
+  width: 600px;
 }
 
 .card-trip > img {
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   object-fit: cover;
   float: left;
   border-radius: 10px;
@@ -133,4 +134,20 @@ a {
   width: 200px;
   object-fit: cover;
   border-radius: 10px;
+}
+
+.card-trip-1{
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin-bottom: 7px;
+  width: 600px;
+}
+.card-trip h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
 }
