@@ -19,7 +19,7 @@
                       <p><strong>Ability: </strong><%= monster.ability %></p>
                       <p><strong>Price: </strong>£<%= monster.price.round %> /day</p>
                     </div>
-                    <%= link_to "Edit monster details", edit_monster_path(monster), class: "btn btn-outline-dark"%>    <%= link_to "Delete", monster_path(monster), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                    <%= link_to "Edit monster details", edit_monster_path(monster), class: "btn btn-outline-dark pl-3"%>    <%= link_to "Delete", monster_path(monster), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
                   </div>
               </div>
             <% end %>
