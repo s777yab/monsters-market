@@ -25,10 +25,10 @@
                   <p><strong>Price: </strong>£<%= monster.price.round %> /day</p>
               </div>
               <div class="button-monsters">
-                <%= link_to edit_monster_path(monster), class: "btn btn-outline-dark" do %>
+                <%= link_to edit_monster_path(monster), class: "btn btn-outline-dark search-bar-button-index" do %>
                   <i class="fa-solid fa-pencil"></i>
                 <% end %>
-                <%= link_to monster_path(monster), class: "btn btn-outline-dark", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                <%= link_to monster_path(monster), class: "btn btn-outline-dark search-bar-button-index", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
                   <i class="fa-solid fa-trash"></i>
                 <% end %>
               </div>

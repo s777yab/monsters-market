@@ -192,14 +192,15 @@ margin-left: 5px;
 .scroll-monster {
   height: 300px;
 }
+
 .book-btn{
   margin: 5px;
   border-radius: 3px;
   color: white;
-  background-color: black;
+  background-color: rgb(32, 32, 32);
 
   &:hover {
     color: #00FF00;
-    background-color: black;
+    background-color: rgb(32, 32, 32);
   }
 }
