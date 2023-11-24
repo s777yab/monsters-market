@@ -6,7 +6,9 @@
   <div class="my-bookings-container monster-spec-background-color p-3 mb-2 w-50 me-1" >
     <div class="my_monster d-flex justify-content-between">
       <h2 class="mb-3 ">My Monsters </h2>
+      <div class="adding-monster">
       <%= link_to "Add monster", new_monster_path, class: "btn btn-dark mon-dash-btn" %>
+      </div>
     </div>
 
       <div class="scroll-monster overflow-auto">
@@ -20,7 +22,14 @@
                 <p><strong>Ability: </strong><%= monster.ability %></p>
                 <p><strong>Price: </strong>£<%= monster.price.round %> /day</p>
               </div>
-              <%= link_to "Edit", edit_monster_path(monster), class: "btn btn-outline-dark"%>    <%= link_to "Delete", monster_path(monster), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              <div class="button-monsters">
+                <%= link_to edit_monster_path(monster), class: "btn btn-outline-dark" do %>
+                  <i class="fa-solid fa-pencil"></i>
+                <% end %>
+                <%= link_to monster_path(monster), class: "btn btn-outline-dark", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                  <i class="fa-solid fa-trash"></i>
+                <% end %>
+              </div>
             </div>
           </div>
         <% end %>
