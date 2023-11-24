@@ -1,7 +1,6 @@
 class MonstersController < ApplicationController
   before_action :set_monster, only: %i[show edit update destroy]
   before_action :monster_params, only: [:create]
-  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @monsters = near_and_bookable
