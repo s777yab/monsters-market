@@ -1,25 +1,14 @@
 class MonstersController < ApplicationController
   before_action :set_monster, only: %i[show edit update destroy]
   before_action :monster_params, only: [:create]
-  skip_before_action :authenticate_user!, only: [:index, :show]
-
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @monsters = near_and_bookable
-    # The `geocoded` scope filters only monsters with coordinates
-    if params[:query].present?
-      @monsters = Monster.search_marketplace(params[:query])
-    else
-      @monsters
-    end
 
-    @markers = @monsters.map do |monster|
-      {
-        lat: monster.latitude,
-        lng: monster.longitude,
-        popup_monster_html: render_to_string(partial: "popup_monster", locals: { monster: monster })
-      }
-    end
+    # Allows the user to search for username, monster name, location, species and for all
+    search
+    display_markers_on_map(@monsters)
   end
 
   def show
@@ -65,6 +54,28 @@ class MonstersController < ApplicationController
   def near_and_bookable
     near_monsters = Monster.near(current_user.address, 20)
     near_monsters.select(&:bookable?)
+  end
+
+  # This displays the monsters on the map as markeres based on the search
+  def display_markers_on_map(monsters)
+    @markers = monsters.map do |monster|
+      {
+        lat: monster.latitude,
+        lng: monster.longitude,
+        popup_monster_html: render_to_string(partial: "popup_monster", locals: { monster: monster })
+      }
+    end
+  end
+
+  # Allows user to search for monsters
+  def search
+    if params[:query].downcase == "all"
+      @monsters = Monster.all
+    elsif params[:query].present?
+      @monsters = Monster.search_marketplace(params[:query])
+    else
+      @monsters
+    end
   end
 
   def set_monster
