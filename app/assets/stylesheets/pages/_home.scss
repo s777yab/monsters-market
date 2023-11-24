@@ -16,18 +16,20 @@
     margin-bottom: 40px;
     display: flex;
     justify-content: center;
+    align-items: center;
 
     .start-button {
       border-radius: 3px;
       background-color: black;
       width: 120px;
       text-align: center;
+      margin-right: 80px;
 
       a {
         color: white;
         text-decoration: none;
         display: inline-block;
-        width: 120px;
+        width: 200px;
 
         &:hover {
           color: #00FF00;
