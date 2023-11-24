@@ -177,6 +177,18 @@ margin-left: 5px;
   border-radius: 10px;
 }
 
+
+.review-notice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 115px;
+}
+
+.review-notice h2 {
+  margin: 0;
+}
+
 .scroll-monster{
   height: 300px;
 }
