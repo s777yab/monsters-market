@@ -8,6 +8,7 @@
     <%= button_tag(type: "submit", class: "btn btn-outline-dark px-3") do %>
       <i class="fa-solid fa-magnifying-glass"></i>
     <% end %>
+    <%= link_to("All", monsters_path(query: "all"), class: "btn btn-outline-dark px-3 margin-left-all-button") %>
   <% end %>
 </div>
 

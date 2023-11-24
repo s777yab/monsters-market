@@ -5,7 +5,6 @@ class MonstersController < ApplicationController
 
   def index
     @monsters = near_and_bookable
-
     # Allows the user to search for username, monster name, location, species and for all
     search
     display_markers_on_map(@monsters)

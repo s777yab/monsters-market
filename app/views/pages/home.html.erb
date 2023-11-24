@@ -3,13 +3,13 @@
     <div class="container">
       <h1><strong>Monsters Market</strong></h1>
       <p>Monsters for Rent: Because sometimes a little <strong class="bold">chaos</strong> is just what your party needs!</p>
-      <div><%= link_to 'Find Out More', "#section2", class: 'button', id: "btn"%></div>
+      <div><%= link_to 'Find Out More', "#scroll", class: 'button', id: "btn"%></div>
       <div class="banner-start">
         <div class="start-button">
           <% if user_signed_in? %>
-            <%= link_to 'Start!', monsters_path %>
+            <%= link_to 'Start!', monsters_path, class: "button p-0" %>
           <%  else  %>
-            <%= link_to 'Start!', new_user_session_path %>
+            <%= link_to 'Start!', new_user_session_path, class: "button p-0"%>
           <% end %>
         </div>
       </div>
@@ -21,11 +21,16 @@
       <div class="sub-section-1">
       <h2>What we do!</h2>
       <p>We offer monsters to the world!</p><br>
-      <i class="fa-solid fa-earth-americas fa-2xl"></i><br>
-      <%= link_to 'Checkout our monsters!', monsters_path, class: "button" %>
+      <i class="fa-solid fa-earth-americas fa-2xl mb-3"></i><br>
+      <div class="d-flex justify-content-center"><%= link_to 'Checkout our monsters!', monsters_path, class: "button", id: "annoying-button" %></div>
       </div>
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/122.png" alt="mr-mime">
     </div>
+    <div id="scroll"></div>
+
+
     <div class="section-2">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/904.png" alt="overquil">
       <div class="sub-section-2">
       <h2>What can you do?</h2>
       <p>Admire, Book and stay Entertained by our unique monsters!</p><br>
@@ -40,11 +45,12 @@
     </div>
     <div class="section-3">
       <div class="sub-section-3">
-      <h2>Do you have a monster to monetize?</h2>
-      <p>Got a creature that deserves the spotlight? Help him make a living!</p>
-      <%= link_to 'Make use of your monster!', new_user_registration_path, class: "button"%>
+        <h2>Do you have a monster to monetize?</h2>
+        <p>Got a creature that deserves the spotlight? Help him make a living!</p><br>
+        <div class="3-link"><%= link_to 'Make use of your monster!', new_user_registration_path, class: "button"%></div>
       </div>
-  </div>
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="charizard">
+    </div>
 </div>
   <div class="footer">
     <div class="footer-links">

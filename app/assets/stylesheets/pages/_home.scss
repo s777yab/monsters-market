@@ -9,25 +9,29 @@
   padding: 150px 0;
   height: calc(100vh - 66px);
   line-height: 60px;
+
   .banner-start {
     width: 100%;
     margin-top: 150px;
     margin-bottom: 40px;
     display: flex;
     justify-content: center;
+
     .start-button {
       border-radius: 3px;
       background-color: black;
       width: 120px;
       text-align: center;
+
       a {
         color: white;
         text-decoration: none;
+        display: inline-block;
+        width: 120px;
 
         &:hover {
           color: #00FF00;
           background-color: rgb(19, 19, 19);
-          // background-color: rgba(0, 0, 0, 0.243);
         }
       }
 
@@ -98,8 +102,8 @@
 
 .section-1, .section-3 {
   display: flex;
-  justify-content: left;
-  height: 250px;
+  justify-content: space-evenly;
+  height: 300px;
     .sub-section-1, .sub-section-3 {
       width: 60%;
       height: 100%;
@@ -113,8 +117,8 @@
 
 .section-2 {
   display: flex;
-  justify-content: right;
-  height: 250px;
+  justify-content: space-evenly;
+  height: 300px;
     .sub-section-2 {
       width: 60%;
       border-radius: 10px;
@@ -141,4 +145,13 @@
     background-color: rgb(19, 19, 19);
     // background-color: rgba(0, 0, 0, 0.243);
   }
+}
+
+#annoying-button {
+  width: max-content;
+}
+
+#scroll {
+  position: relative;
+  top: -150px;
 }
