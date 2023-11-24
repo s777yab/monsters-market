@@ -6,23 +6,25 @@
   <div class="my-bookings-container monster-spec-background-color p-3 mb-2 w-50 me-1" >
     <div class="my_monster d-flex justify-content-between">
       <h2 class="mb-3 ">My Monsters </h2>
-      <%= link_to "List new monster", new_monster_path, class: "btn btn-dark mon-dash-btn" %>
+      <%= link_to "Add monster", new_monster_path, class: "btn btn-dark mon-dash-btn" %>
     </div>
 
-      <% current_user.monsters.each do |monster| %>
-        <div class="card-trip">
-          <%= cl_image_tag(monster.photo.key, :class => "show-photo-border-radius") %>
-          <div class="card-trip-infos">
-            <div class="div">
-              <h3><%= monster.name %></h3>
-              <p><strong>Species: </strong><%= monster.species %></p>
-              <p><strong>Ability: </strong><%= monster.ability %></p>
-              <p><strong>Price: </strong>£<%= monster.price.round %> /day</p>
+      <div class="scroll-monster overflow-auto">
+        <% current_user.monsters.each do |monster| %>
+          <div class="card-trip">
+            <%= cl_image_tag(monster.photo.key, :class => "show-photo-border-radius") %>
+            <div class="card-trip-infos">
+              <div class="div">
+                <h3><%= monster.name %></h3>
+                <p><strong>Species: </strong><%= monster.species %></p>
+                <p><strong>Ability: </strong><%= monster.ability %></p>
+                <p><strong>Price: </strong>£<%= monster.price.round %> /day</p>
+              </div>
+              <%= link_to "Edit", edit_monster_path(monster), class: "btn btn-outline-dark"%>    <%= link_to "Delete", monster_path(monster), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             </div>
-            <%= link_to "Edit monster details", edit_monster_path(monster), class: "btn btn-outline-dark"%>    <%= link_to "Delete", monster_path(monster), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
   </div>
 
 
@@ -30,23 +32,24 @@
   <div class="my-bookings-container monster-spec-background-color p-3 mb-2 w-50 ms-1" >
 
     <h2 class="mb-3">My Bookings</h2>
-    <% current_user.bookings.each do |booking| %>
-      <div class="card-trip">
-        <%= cl_image_tag(booking.monster.photo.key, :class => "show-photo-border-radius") %>
-        <div class="card-trip-infos">
-          <div>
-            <h3><%= booking.monster.name %></h3>
-            <p><strong>Species: </strong><%= booking.monster.species %></p>
-            <p><strong>Booked: </strong><%= "#{booking.start_date} - #{booking.end_date}" %></p>
-          </div>
-          <div>
-            <% days = booking.end_date - booking.start_date %>
-            <p><strong>Total cost: </strong><%= "£#{ days.to_i * booking.monster.price.round }"%></p>
-            <p><%= "£#{ booking.monster.price.round } per day " %></p>
+      <div class="scroll-monster overflow-auto">
+      <% current_user.bookings.each do |booking| %>
+        <div class="card-trip">
+          <%= cl_image_tag(booking.monster.photo.key, :class => "show-photo-border-radius") %>
+          <div class="card-trip-infos">
+            <div>
+              <h3><%= booking.monster.name %></h3>
+              <p><strong>Species: </strong><%= booking.monster.species %></p>
+              <p><strong>Booked: </strong><%= "#{booking.start_date} - #{booking.end_date}" %></p>
+            </div>
+            <div>
+              <% days = booking.end_date - booking.start_date %>
+              <p><strong>Total cost: </strong><%= "£#{ days.to_i * booking.monster.price.round }"%></p>
+              <p><%= "£#{ booking.monster.price.round } per day " %></p>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-
+      <% end %>
+    </div>
   </div>
 </div>
