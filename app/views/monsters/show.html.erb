@@ -1,3 +1,9 @@
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
+
 <div class="container">
   <div class="d-flex">
     <div class="flex-direction">
@@ -30,12 +36,23 @@
     </div>
   </div>
 
-  <div class="d-flex mb-1">
+  <div class="d-flex mb-1 height-reveiw-form-review-display">
 
-    <div class="review-backgroud-color-white my-2 p-3 mr-2 w-50 left-review-card-margin">
+    <div class="review-backgroud-color-white my-2 p-3 mr-2 w-50 left-review-card-margin overflow-scroll">
       <% @monster.reviews.each do |review| %>
-        <div class="p-1 border-bottom">
-          <p><%= "⭐️" * review.rating %></p>
+        <div class="review-box">
+          <div class="d-flex justify-content-between">
+            <div class="review-card-user-info">
+              <%= image_tag "https://upload.wikimedia.org/wikipedia/en/6/6a/Mike_Wazowski.png", class: "avatar-bordered border border-dark" %>
+                <div class="review-card-user-info-text margin-left-address-and-username">
+                  <p><strong><%= review.user.username %></strong></p>
+                  <p class="address-font-size"><%= review.user.address %></p>
+                </div>
+            </div>
+            <div class="mt-2">
+              <p><%= icon('fa-solid fa-ghost fa-fw', style: "color: #000000") * review.rating %></p>
+            </div>
+          </div>
           <p><%= review.comment %></p>
         </div>
       <% end %>

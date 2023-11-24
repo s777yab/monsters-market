@@ -1,5 +1,6 @@
 .show-photo-border-radius {
   border-radius: 10px;
+  background-color: white;
 }
 
 .ability-margin {
@@ -39,4 +40,16 @@ h1 {
 
 .left-review-card-margin {
   margin-right: 8px;
+}
+
+.margin-left-address-and-username {
+  margin-left: 10px;
+
+  .address-font-size {
+    font-size: 13px;
+  }
+}
+
+.height-reveiw-form-review-display {
+  height: 340px;
 }
