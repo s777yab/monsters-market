@@ -69,7 +69,7 @@ class MonstersController < ApplicationController
 
   # Allows user to search for monsters
   def search
-    if params[:query].downcase == "all"
+    if params[:query].present? && params[:query].downcase == "all"
       @monsters = Monster.all
     elsif params[:query].present?
       @monsters = Monster.search_marketplace(params[:query])
