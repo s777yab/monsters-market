@@ -31,7 +31,7 @@
         <%= f.input :start_date, as: :date, label_html: { class: "booking-form-label-font-size"}, input_html: { class: "p-2" } %>
         <%= f.input :end_date, as: :date, label_html: { class: "booking-form-label-font-size"}, input_html: { class: "p-2" } %>
         <h3 class="my-4">£<%= @monster.price.round %> / per day</h3>
-        <%= f.button :submit, 'Book now!', class: "btn-dark mb-3" %>
+        <%= f.button :submit, 'Book now!', class: "btn-success btn-lg mb-3 shadow-sm" %>
       <% end %>
     </div>
   </div>
