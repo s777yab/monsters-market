@@ -102,7 +102,7 @@
 
 .section-1, .section-3 {
   display: flex;
-  justify-content: left;
+  justify-content: space-evenly;
   height: 300px;
     .sub-section-1, .sub-section-3 {
       width: 60%;
@@ -117,7 +117,7 @@
 
 .section-2 {
   display: flex;
-  justify-content: right;
+  justify-content: space-evenly;
   height: 300px;
     .sub-section-2 {
       width: 60%;
@@ -149,4 +149,9 @@
 
 #annoying-button {
   width: max-content;
+}
+
+#scroll {
+  position: relative;
+  top: -150px;
 }
