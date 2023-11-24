@@ -7,8 +7,22 @@
   margin: auto;
 }
 
+.search-bar-button-index {
+  &:hover {
+    color: #00FF00;
+    background-color: rgb(32, 32, 32);
+  }
+}
+
 .margin-left-all-button {
   margin-left: 0.5rem;
+  // color: white;
+  // background-color: rgb(32, 32, 32);
+
+  &:hover {
+    color: #00FF00;
+    background-color: rgb(32, 32, 32);
+  }
 }
 
 .no-monster-found {
