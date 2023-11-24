@@ -13,6 +13,11 @@
 </div>
 
 <% if @monsters.any? %>
+  <% if params[:query].blank? %>
+    <h2 class= "monsters-near">Monsters near you</h2>
+  <% else %>
+    <h2 class="monsters-near" ><%= "Showing results for '#{params[:query].capitalize}'" %></h2>
+  <% end %>
   <div class="d-flex my-3">
     <div class="bg-color-white cards">
       <% @monsters.each do |monster| %>
