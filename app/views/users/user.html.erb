@@ -48,8 +48,10 @@
         <div class="card-trip">
           <%= cl_image_tag(booking.monster.photo.key, :class => "show-photo-border-radius") %>
           <div class="card-trip-infos">
-            <div>
-              <h3><%= booking.monster.name %></h3>
+            <div class="monster-name">
+              <%= link_to monster_path(booking.monster) do %>
+                <h3><%= booking.monster.name %></h3>
+              <% end %>
               <p><strong>Species: </strong><%= booking.monster.species %></p>
               <p><strong>Booked: </strong><%= "#{booking.start_date} - #{booking.end_date}" %></p>
             </div>
