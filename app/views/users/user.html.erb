@@ -16,11 +16,13 @@
           <div class="card-trip">
             <%= cl_image_tag(monster.photo.key, :class => "show-photo-border-radius") %>
             <div class="card-trip-infos">
-              <div class="div">
-                <h3><%= monster.name %></h3>
-                <p><strong>Species: </strong><%= monster.species %></p>
-                <p><strong>Ability: </strong><%= monster.ability %></p>
-                <p><strong>Price: </strong>£<%= monster.price.round %> /day</p>
+              <div class="monster-name">
+                <%= link_to monster_path(monster) do %>
+                  <h3><%= monster.name %></h3>
+                <% end %>
+                  <p><strong>Species: </strong><%= monster.species %></p>
+                  <p><strong>Ability: </strong><%= monster.ability %></p>
+                  <p><strong>Price: </strong>£<%= monster.price.round %> /day</p>
               </div>
               <div class="button-monsters">
                 <%= link_to edit_monster_path(monster), class: "btn btn-outline-dark" do %>
