@@ -9,7 +9,7 @@
           <% if user_signed_in? %>
             <%= link_to 'Start!', monsters_path %>
           <%  else  %>
-            <%= link_to 'Start!', new_user_registration_path %>
+            <%= link_to 'Start!', new_user_session_path %>
           <% end %>
         </div>
       </div>
@@ -20,14 +20,22 @@
     <div class="section-1">
       <div class="sub-section-1">
       <h2>What we do!</h2>
-      <p>We offer monsters to the world!</p>
+      <p>We offer monsters to the world!</p><br>
+      <i class="fa-solid fa-earth-americas fa-2xl"></i><br>
       <%= link_to 'Checkout our monsters!', monsters_path, class: "button" %>
       </div>
     </div>
     <div class="section-2">
       <div class="sub-section-2">
       <h2>What can you do?</h2>
-      <p>Admire, Book and stay Entertained by our unique mosters!</p>
+      <p>Admire, Book and stay Entertained by our unique monsters!</p><br>
+        <div class="icon-div">
+        <i class="fa-regular fa-eye fa-2xl"></i>
+        <i class="fa-solid fa-arrow-right fa-2xl"></i>
+        <i class="fa-solid fa-bookmark fa-2xl"></i>
+        <i class="fa-solid fa-arrow-right fa-2xl"></i>
+        <i class="fa-solid fa-face-laugh-squint fa-2xl"></i>
+        </div>
       </div>
     </div>
     <div class="section-3">
@@ -47,6 +55,6 @@
       <a href="#"><i class="fab fa-linkedin"></i></a>
     </div>
     <div class="footer-copyright">
-      This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+      Thank you for using MonstersMarket! <i class="fas fa-heart"></i>
     </div>
   </div>
