@@ -7,9 +7,9 @@
       <div class="banner-start">
         <div class="start-button">
           <% if user_signed_in? %>
-            <%= link_to 'Start!', monsters_path, class: "button p-0" %>
+            <%= link_to 'Find monsters near you!', monsters_path, class: "button p-0" %>
           <%  else  %>
-            <%= link_to 'Start!', new_user_session_path, class: "button p-0"%>
+            <%= link_to 'Find monsters near you!', new_user_session_path, class: "button p-0"%>
           <% end %>
         </div>
       </div>
